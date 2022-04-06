@@ -1,5 +1,6 @@
 # Basic learning
 # Huong will become Expert Data Analyst
+# Huong không học đàng quàng sẽ bị Tuấn đánh!!!!
 #%% Python Essential Tranining
 x = [1,2,3,4,5]
 for i in x:
