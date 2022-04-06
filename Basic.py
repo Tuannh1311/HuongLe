@@ -33,3 +33,66 @@ hungry = x + y > 9
 x = 'Feed the bear now' if hungry else 'Dont do that'
 print (x)
 # %%
+x=10000
+def Digits(x):
+    d=1
+    if (x>=10):
+        d=d+1
+    if (x>=100):
+        d=d+1
+    if (x>=1000):
+        d=d+1
+    if (x>=10000):
+        d=d+1
+    return(d)
+print (Digits(500))
+# %%
+x=10000
+def Digits(x):
+    d=1
+    if (x>=10):
+        d=d+1
+    elif (x>=100):
+        d=d+1
+    elif (x>=1000):
+        d=d+1
+    elif (x>=10000):
+        d=d+1
+    return(d)
+print(Digits(x))
+# %%
+secret = 'fish'
+pw = ''
+while pw != secret:
+    pw = input('what is your secret word?')
+else:
+    print('you got right pw')
+
+# %%
+animals = ('fish','dog','cat')
+for pet in animals:
+    print(pet)
+# %%
+secret = 'fish'
+pw = ''
+auth = False
+count = 0
+max_attemp = 5
+
+while pw != secret:
+    count +=1
+    if count > max_attemp: break
+    pw = input('What is your secret pw?')
+print ('Authorized' if auth else 'Calling FBI')
+
+# %%
+animal = ('pet','bunny','chicken', 'cat','dog')
+for pet in animal:
+    if pet == 'bunny': continue
+    if pet == 'cat': break
+    print (pet)
+else: 
+    print ('thats all')
+    
+
+# %%
