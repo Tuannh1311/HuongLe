@@ -2,6 +2,9 @@
 # Huong will become Expert Data Analyst
 # Huong không học đàng quàng sẽ bị Tuấn đánh!!!!
 #%% Python Essential Tranining
+from unicodedata import name
+
+
 x = [1,2,3,4,5]
 for i in x:
     print(i)
@@ -94,5 +97,30 @@ for pet in animal:
 else: 
     print ('thats all')
     
+
+# %%
+def main():
+    kitten()
+def kitten ():
+    print('Meow.')
+
+if __name__ == '__main__': main()
+# %%
+def main():
+    kitten(5)
+def kitten(a,a+=1,a+=2):
+    print (a,a+=1,a+=2)
+
+if __name__ =='__main__':main()
+# %%
+def main():
+    x = ('meow','grr','purr','hello')
+    kitten(*x)
+
+def kitten(*args):
+    print(args)
+
+if __name__=='__main__': main()
+
 
 # %%
