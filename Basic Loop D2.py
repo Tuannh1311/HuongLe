@@ -124,3 +124,80 @@ if __name__=='__main__': main()
 
 
 # %%
+def myfun (*args):
+    if len (args):
+        for i in argv:
+            print (i)
+    else: print('Meow')
+
+myfun('Hello','Hi','How','are','you')
+
+# %%
+
+def hi():
+    kitten('Hello','Hi','How','are','you')
+def kitten(*args):
+    if len(args):
+        for i in args:
+            print(i)
+    else: print ('Meow')
+
+if __name__ == '__main__':hi()
+
+# %%
+def HuongTuan(**kwargs):
+    for k in kwargs:
+        print('{} is {}'.format(k,kwargs[k]))
+
+HuongTuan(Huong='Tuan', Tuan = 'Huong', HuongTuan ='Us')
+# %%
+def HuongTuan(**kwargs):
+    for i,k in kwargs.items():
+        print('%s == %s' % (i,k))
+
+HuongTuan(Huong='Tuan', Tuan = 'Huong', HuongTuan ='Us')
+# %%
+def main():
+    for i in inclusive_range(5,25,5):
+        print(i,end=' ')
+    print()
+def inclusive_range(*args):
+    numargs =len(args)
+    start=0
+    step =1
+
+    if numargs <1:
+        raise TypeError('Expected at least 1 item')
+    elif numargs == 1:
+        stop = args[0]
+    elif numargs == 2:
+        (start, stop) = args
+    elif numargs == 3:
+        (start, stop, step) = args
+    else: raise TypeError ('More than 3 items')
+
+    i=start
+    while i<=stop:
+        yield i
+        i+=step
+
+if __name__ == '__main__':main()
+
+# %%
+def create_generator():
+    mylist = range(4)
+    for i in mylist:
+        yield i*i
+
+def create_generator_return():
+    mylist = range(3)
+    for i in mylist:
+        return i*i
+
+if __name__ == '__create_generator__': create_generator
+# %%
+print(create_generator())
+print(create_generator_return())
+
+for x in create_generator():
+    print(x)
