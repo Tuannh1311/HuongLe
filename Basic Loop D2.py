@@ -145,6 +145,7 @@ def kitten(*args):
 if __name__ == '__main__':hi()
 
 # %%
+""" Day 6"""
 def HuongTuan(**kwargs):
     for k in kwargs:
         print('{} is {}'.format(k,kwargs[k]))
@@ -201,3 +202,123 @@ print(create_generator_return())
 
 for x in create_generator():
     print(x)
+
+# %%
+"""Day 7"""
+def f1(f):
+    def f2():
+        print ('this is before the function call')
+        f()
+        print('this is after the function call')
+    return f2()
+
+def f3():
+    print('this is f3')
+
+a = f1(f3)
+a()
+
+# %%
+import time
+x = time.time()
+print (x)
+# %%
+import time
+def elapsed_time(big_sum):
+    def wrapper():
+        t1 = time.time()
+        big_sum()
+        t2=time.time()
+        print(f'Elapsed time:{(t2-t1)*1000}ms')
+    return wrapper
+
+def big_sum():
+    num_list= []
+    for num in (range(0,10000)):
+        num_list.append(num)
+    print (f'Big sum: {sum(num_list)}')
+
+main = elapsed_time(big_sum)
+main()
+
+
+
+# %%
+def F1(f):
+    print('A')
+    def F2():
+        print('B')
+        f()
+        print('C')
+    print('D')
+    return F2
+@F1
+def F3():
+    print('E')
+F3()
+# %%
+def Func (a,b):
+    a=1; b[0]=1
+
+
+x=0 ; y=[0]
+print(y)
+Func(x, y)
+print(x, y)
+# %%
+"""Day 8"""
+def main():
+    game = ['Rock','Paper','Scissors','Lizard','Spock']
+    game.append('Computer')
+    print(game)
+
+def print_list(o):
+    for i in o: print (i, end =' ', flush = True)
+    print()
+
+if __name__ == '__main__': main()
+# %%
+
+# %%
+def main():
+    game = ['Rock','Paper','Scissors','Lizard','Spock']
+    game.insert(1,'Computer')
+    print_list(game)
+
+def print_list(o):
+    for i in o: print(i, end=' ', flush= True)
+    print()
+
+if __name__ == '__main__': main()
+# %%
+def main():
+    game = ['Rock','Paper','Scissors','Lizard','Spock']
+    game.remove('Paper')
+    print_list(game)
+
+def print_list(o):
+    for i in o: print(i, end =' ', flush = True)
+
+if __name__ == '__main__':main()
+# %%
+def main():
+    game = ['Rock','Paper','Scissors','Lizard','Spock']
+    x=game.pop()
+    print(x)
+    print_list(x)
+
+def print_list(o):
+    for i in o: print(i, end =' ', flush = True)
+
+if __name__ == '__main__':main()
+# %%
+def main():
+    game = ['Rock','Paper','Scissors','Lizard','Spock']
+    del game[1:3]
+    print_list(game)
+
+def print_list(o):
+    for i in o: print(i, end =' ', flush = True)
+
+if __name__ == '__main__':main()
+# %%
