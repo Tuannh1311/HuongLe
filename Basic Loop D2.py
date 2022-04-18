@@ -2,6 +2,7 @@
 # Huong will become Expert Data Analyst
 # Huong không học đàng quàng sẽ bị Tuấn đánh!!!!
 #%% Python Essential Tranining
+from ossaudiodev import SOUND_MIXER_ALTPCM
 from unicodedata import name
 
 
@@ -322,3 +323,388 @@ def print_list(o):
 
 if __name__ == '__main__':main()
 # %%
+def main():
+    game = ['Rock','Paper','Scissors','Lizard','Spock']
+    print(', '.join(game))
+    print_list(game)
+
+def print_list(o):
+    for i in o: print(i, end =', ', flush = True)
+
+if __name__ == '__main__':main()
+# %%
+"""Dictionary Option 1"""
+def main():
+    animals = {'kitten':'meow', 'puppy' :'ruff', 'lion' :'grr', 'giraffe' :'I am a giraffe','dragon':'rawr'}
+    print_dict(animals)
+
+def print_dict(o):
+    for k,v in o.items(): print (f'{k} is {v}')
+
+if __name__ == '__main__': main()
+
+# %%
+animals = {'kitten':'meow', 'puppy' :'ruff', 'lion' :'grr', 'giraffe' :'I am a giraffe','dragon':'rawr'}
+for k,v in animals:
+    print(f'{k} is {v}')
+# %%
+"""Dictionary Option 2"""
+def main():
+    animals = {'kitten':'meow', 'puppy' :'ruff', 'lion' :'grr', 'giraffe' :'I am a giraffe','dragon':'rawr'}
+    animals['monkey'] ='haha'
+    print_dict(animals)
+
+def print_dict(o):
+    for x in o: print (f'{x} is {o[x]}')
+
+if __name__ == '__main__': main()
+
+# %%
+def main():
+    animals = dict(kitten='meow', puppy ='ruff', lion ='grr', giraffe ='I am a giraffe',dragon='rawr')
+    print_dict(animals)
+
+def print_dict(o):
+    for k in o.keys(): print (k)
+
+if __name__ == '__main__': main()
+# %%
+def main():
+    animals = dict(kitten='meow', puppy ='ruff', lion ='grr', giraffe ='I am a giraffe',dragon='rawr')
+    print_dict(animals)
+
+def print_dict(o):
+    for k in o.values(): print (k)
+
+if __name__ == '__main__': main()
+# %%
+"""Print_set a -b """
+def main():
+    a = set ("abc.")
+    b = set (" cde?")
+    print_set(a-b)
+
+
+def print_set(o):
+    print('{',end='')
+    for x in o: print(x,end='')
+    print('}')
+
+if __name__ == '__main__': main()
+
+# %%
+"""Print_set a or b"""
+def main():
+    a = set ("abc.")
+    b = set (" cde?")
+    print_set(a|b)
+
+
+def print_set(o):
+    print('{',end='')
+    for x in o: print(x,end='')
+    print('}')
+
+if __name__ == '__main__': main()
+# %%
+"""Print_set mutual elements between a & b"""
+def main():
+    a = set ("abc.")
+    b = set (" cde?")
+    print_set(a^b)
+
+
+def print_set(o):
+    print('{',end='')
+    for x in o: print(x,end='')
+    print('}')
+
+if __name__ == '__main__': main()
+# %%
+"""Print_set appearin both set a & b"""
+def main():
+    a = set ("abc.")
+    b = set (" cde?")
+    print_set(a&b)
+
+
+def print_set(o):
+    print('{',end='')
+    for x in o: print(x,end='')
+    print('}')
+
+if __name__ == '__main__': main()
+# %%
+"""Day 9"""
+def main():
+    seq = range(11)
+    seq2= [x*2 for x in seq]
+    print_list (seq)
+    print_list (seq2)
+
+def print_list(o):
+    for x in o:
+        print (x, end =' ')
+    print ()
+
+if __name__=='__main__': main()
+
+# %%
+def main():
+    seq = range(11)
+    seq2= [x for x in seq if x%3 !=0]
+    print_list (seq)
+    print_list (seq2)
+
+def print_list(o):
+    for x in o:
+        print (x, end =' ')
+    print ()
+
+if __name__=='__main__': main()
+# %%
+def main():
+    seq = range(11)
+    seq2= {x:x*2 for x in seq if x%3 !=0}
+    print_list (seq)
+    print_dict (seq2)
+
+def print_list(o):
+    for x in o:
+        print (x, end =' ')
+    print ()
+
+if __name__=='__main__': main()
+# %%
+"""Líst of a set"""
+def main():
+    seq = range(11)
+    seq2= {x for x in 'hello how are you doing??' if x not in 'h?' }
+    print_list (seq)
+    print_set (seq2)
+
+def print_list(o):
+    for x in o:
+        print (x, end =' ')
+    print ()
+
+if __name__=='__main__': main()
+# %%
+x = ['-','-','X','X']
+x.insert(0,x.pop())
+# %%
+"""Day 10"""
+class Duck:
+    sound = 'Quack quack'
+    movement = 'Walk like a duck'
+    def quack(self):
+        print(self.sound)
+    def move(self):
+        print(self.movement)
+
+def main():
+    donald = Duck()
+    donald.quack()
+    donald.move()
+
+if __name__ =='__main__': main()
+# %%
+class Animal:
+    def __init__(self,type,name,sound):
+        self._type = type
+        self._name = name
+        self._sound = sound 
+    def type (self):
+        return self._type
+    def name(self):
+        return self._name
+    def sound(self):
+        return self._sound
+def print_animal(o):
+    if not isinstance(o,Animal):
+        raise TypeError ('print_animal():requires an Animal')
+    print ('The {} is named "{}" and says "{}".'.format(o.type(),o.name(),o.sound()))
+def main():
+    a0= Animal('kitten','fluffy','rwar')
+    a1 = Animal ('duck','donald', 'quack')
+    print_animal(a0)
+    print_animal(a1)
+    print_animal(Animal('velo','vero','hello'))
+
+if __name__ == '__main__':main()
+
+
+# %%
+def main():
+    animal_name = {'fluffy' : 'rwar', 'donald' :'quack', 'velo' : 'helo'}
+    print_dict(animal_name)
+def print_dict(o):
+    for i,k in o.items():
+        print('The {} says {}'.format(i,k))
+
+if __name__ == '__main__': main()
+# %%
+class Animal:
+    def __init__(self,type,name,sound):
+        self._type = type
+        self._name = name
+        self._sound = sound
+    def type(self):
+        return self._type
+    def name(self):
+        return self._name
+    def sound(self):
+        return self._sound
+
+def print_animal(o):
+    if not isinstance (o,Animal):
+        raise TypeError ('Wrong')
+    print('This is {} called "{}" says "{}"'.format(o.type(),o.name(),o.sound()))
+
+def main():
+    a = Animal('fluffy','cat','rwar')
+    print_animal(a)
+
+if __name__ == '___main__': main()
+
+#%% 
+class Animal:
+    def __init__(self,**kwargs):
+        self._type = kwargs['type']
+        self._name = kwargs['name']
+        self._sound = kwargs['sound']
+    def type(self):
+        return self._type
+    def name(self):
+        return self._name
+    def sound(self):
+        return self._sound
+
+def main():
+   a0 = Animal(type ='kitten', name ='fluffy', sound = 'meow')
+   print_animal(a0)
+
+def print_animal(o):
+    if not isinstance (o, Animal):
+        raise TypeError ('Wrong')
+    print('This is {} called {} says {}'.format(o.type(), o.name(), o.sound()))
+if __name__ == '__main__': main()
+
+#%%
+class Animal:
+    def __init__(self,**kwargs):
+        self._type =kwargs['type'] if 'type' in kwargs else 'kitten'
+        self._name = kwargs['name'] if 'name' in kwargs else 'fluffy'
+        self._sound = kwargs['sound'] if 'sound' in kwargs else 'meow'
+    def type(self,t=None):
+        if t: self._type=t
+        return self._type
+    def name(self, n= None):
+        if n:self_name = n
+        return self._name
+    def sound(self, s=None):
+        if s:self_sound = s
+        return self._sound
+    def __str__(self):
+        return f'The {self._type()} is named "{self._name}" and says "{self._sound}" '
+
+def main():
+    a0= Animal(type ='dog',name='puppy',sound='gauz')
+    a1= Animal (type ='chicken',name='chic', sound ='quack')
+    print(a0)
+    print(a1)
+
+if __name__=='__main__': main()
+# %%
+def main():
+    try: x=int('foo')
+    except ValueError: print('Wrong')
+if __name__=='__main__': main()
+
+# %%
+
+def main():
+    try: 
+        print (x)
+    except ValueError: 
+        print ('Value Error roi kia')
+    except ZeroDivisionError:
+        print ('Chia cho 0 la ngu ngok')
+
+if __name__=='__main__':main()
+
+0
+# %%
+class Animal:
+    def __init__(self,type,name,sound):
+        self._type = type
+        self._name = name
+        self._sound = sound
+
+    def type(self):
+        return self._type
+    def name(self):
+        return self._name
+    def sound(self):
+        return self._sound
+def print_animal(o):
+    if not isinstance (o,Animal): raise TypeError ('Loi roi ma')
+    print ('This is {} called {} says {}'.format (o.type(),o.name(),o.sound()))
+    
+def main():
+    a0 = Animal('cat','puppy','meow')
+    print_animal(a0)
+
+if __name__ == '__main__':main()
+# %%
+def inclusive_range(*args):
+    numargs = len(args)
+    start=0
+    step =1
+    #initialize parameters
+    if numargs < 1:
+        raise TypeError ('Expected at list 1 argument')
+    elif numargs ==1:
+        stop = args[0]
+    elif numargs ==2: 
+        (start,stop) = args
+    elif numargs ==3:
+        (start,stop,step)=args
+    else:
+        raise TypeError('Loi roi')
+
+    i = start
+    while i <= stop:
+        yield i
+        i += step
+
+def main():
+    try:
+        for i in inclusive_range(4,100,5,4,9):
+            print (i,end=' ')
+    except TypeError as e:
+        print (f'range error:{e}')
+
+        
+if __name__=='__main__':main()
+    
+# %%
+class Mystring(str):
+    def __str__(self):
+        return self.upper()
+s = Mystring('Hello World')
+print (s)
+
+# %%
+print ('hello WORrld'.swapcase())
+# %%
+"""Day 11"""
+x = 43
+y = 71 
+
+print ('Hello I am {0:10} and you are {1:5}'.format(x,y))
+# %%
+x =50*1000*200
+print('Hello co gang len {:,}'.format(x))
+# %%
+
