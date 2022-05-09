@@ -2,6 +2,7 @@
 # Huong will become Expert Data Analyst
 # Huong không học đàng quàng sẽ bị Tuấn đánh!!!!
 #%% Python Essential Tranining
+from configparser import MissingSectionHeaderError
 from ossaudiodev import SOUND_MIXER_ALTPCM
 from unicodedata import name
 
@@ -704,7 +705,70 @@ y = 71
 
 print ('Hello I am {0:10} and you are {1:5}'.format(x,y))
 # %%
-x =50*1000*200
-print('Hello co gang len {:,}'.format(x))
+x =5*10*20
+print('Hello co gang len {:.3f}'.format(x))
 # %%
+s ='This is Huong who is trying to apply for DA job'
+l =s.split()
+s2 = '--'.join(l)
+print (s)
+print(s2)
 
+# %%
+s1= 'Test'
+s2 = 'tEST'
+print(s1.capitalize())
+print(s2.capitalize())
+
+# %%
+a=1
+print('{0:+04}'.format(a))
+# %%
+def main():
+    f = open('lines.txt','r')
+    for line in f:
+        print(line.rstrip())
+if __name__=='__main__': main()
+# %%
+def main():
+    infile = open('lines.txt','rt')
+    outfile = open('line-copy.txt', 'wt')
+    for line in infile:
+        print(line.rstrip(),file = outfile)
+        print('.',end='')
+    outfile.close()
+    infile.close()
+    print('\ndone.')
+if __name__=='__main__':main()
+# %%
+class bunny:
+    def __init__(self,n):
+        self._n = n
+        print(f'The number of bunnies is {self._n}')
+x=bunny(47)
+
+# %%
+"""Day 13"""
+import numpy as np
+import pandas as pd
+from pandas import Series, DataFrame
+series_obj = Series(np.arange(8),index=['row1','row2','row3','row4','row5','row6','row7','row8'])
+series_obj[[0,7]]
+series_obj[series_obj>6]
+series_obj['row1','row3','row5']=8
+series_obj
+
+# %%
+import numpy as np
+import pandas as pd
+from pandas import Series, DataFrame
+
+DF_obj= DataFrame(np.random.rand(36).reshape((6,6)),
+        index=['row1','row2','row3','row4','row5','row6'],
+        columns = ['column1','column2','column3','column4','column5','column6'])
+missing = np.nan
+DF_obj.loc[0,1:5] = missing
+DF_obj
+
+                    
+# %%
