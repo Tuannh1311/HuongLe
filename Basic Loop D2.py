@@ -767,8 +767,50 @@ DF_obj= DataFrame(np.random.rand(36).reshape((6,6)),
         index=['row1','row2','row3','row4','row5','row6'],
         columns = ['column1','column2','column3','column4','column5','column6'])
 missing = np.nan
-DF_obj.loc[0,1:5] = missing
+DF_obj.iloc[1,1:5] = missing
+DF_obj.iloc[2,2:4] = missing
 DF_obj
+filled_DF = DF_obj.fillna(method = 'ffill')
+filled_DF
+
 
                     
+# %%
+import numpy as np
+import pandas as pd
+from pandas import Series, DataFrame
+
+DF_obj = DataFrame(np.arange(20).reshape(5,4),
+                    index = ['row1','row2','row3','row4','row5'],
+                    columns = ['col1','col2','col3','col4'])
+missing = np.nan
+DF_obj.iloc[3:5,1]=missing
+DF_obj.iloc[1:3,3] = missing
+DF_obj
+filled_DF = DF_obj.fillna(method='ffill')
+filled_DF
+# %%
+"""Count missing values"""
+import numpy as np
+import pandas as pd
+from pandas import Series, DataFrame
+
+DF_obj = DataFrame(np.arange(20).reshape(4,5),
+                    index = ['row1','row2','row3','row4'],
+                    columns =['col1','col2','col3','col4','col5'])
+DF_obj.iloc[3:5,1]=missing
+DF_obj.iloc[1:3,3] = missing
+DF_obj
+DF_obj.isnull().sum()
+DF_obj.dropna(axis=1)
+# %%
+import numpy as np
+import pandas as pd
+from pandas import Series, DataFrame
+
+DF_obj = DataFrame({'column1':[1,1,2,2,3,3,3],
+                    'column2':['a','a','b','b','c','c','c'],
+                    'column3':['A','B','B','B','C','C','C']})
+DF_obj
+DF_obj.duplicated()
 # %%
