@@ -809,8 +809,97 @@ import pandas as pd
 from pandas import Series, DataFrame
 
 DF_obj = DataFrame({'column1':[1,1,2,2,3,3,3],
-                    'column2':['a','a','b','b','c','c','c'],
-                    'column3':['A','B','B','B','C','C','C']})
-DF_obj
-DF_obj.duplicated()
+                    'column2':['a','a','b','f','c','c','c'],
+                    'column3':['A','A','B','B','C','C','C']})
+DF_obj.drop_duplicates(['column2'])
+
+
 # %%
+"""Concatenating"""
+import pandas as pd
+import numpy as np
+from pandas import Series, DataFrame
+
+DF_obj = DataFrame(np.arange(36).reshape(6,6))
+DF_obj
+DF_obj_1 = DataFrame(np.arange(15).reshape(5,3))
+DF_obj_1
+DF_obj_2=pd.concat([DF_obj,DF_obj_1],axis =1)
+DF_obj_2.drop([0,4],axis =1)
+
+
+# %%
+"""Add data"""
+import pandas as pd
+import numpy as np
+from pandas import Series, DataFrame
+
+DF_obj= DataFrame(np.arange(36).reshape(6,6))
+series_obj = Series(np.arange(6))
+series_obj.name = 'added value'
+join_both = DataFrame.join(DF_obj,series_obj)
+join_both
+# %%
+"""Append data"""
+import numpy as np
+import pandas as pd
+from pandas import Series, DataFrame
+
+DF_obj = DataFrame(np.arange(36).reshape(6,6))
+series_obj = Series(np.arange(5))
+join_both = DataFrame (DF_obj,series_obj)
+join_both_big = pd.concat([join_both,series_obj],axis =1,ignore_index= True)
+join_both_big_sorted = join_both_big.sort_values(by=6,ascending=False)
+join_both_big_sorted
+
+ 
+
+#%%
+import numpy as np
+import pandas as pd
+from pandas import Series, DataFrame
+address = '/Users/huongle/Desktop/mtcars.csv'
+cars = pd.read_csv(address)
+cars.head()
+# %%
+import numpy as np
+from numpy.random import randn
+import pandas as pd
+from pandas import Series, DataFrame
+
+import matplotlib.pyplot as plt
+from matplotlib import rcParams 
+x = range (1,10)
+y = [1,2,3,4,0,4,3,2,1]
+plt.plot(x,y)
+# %%
+import numpy as np
+from numpy.random import randn
+import pandas as pd
+from pandas import Series, DataFrame
+
+import matplotlib.pyplot as plt
+from matplotlib import rcParams
+
+address = '/Users/huongle/Desktop/mtcars.csv'
+cars = pd.read_csv(address)
+cars.columns =['carname','mpg','cyl','disp','hp','drat','wt','qsec','vs','am','gear','carb']
+mpg = cars['mpg']
+mpg.plot()
+df = cars[['cyl','wt','mpg']]
+df.plot()
+
+# %%
+import numpy as np
+from numpy.random import randn 
+import pandas as pd 
+from pandas import Series, DataFrame
+
+import matplotlib.pyplot as plt
+from matplotlib import rcParams
+
+address = '/Users/huongle/Desktop/mtcars.csv'
+cars = pd.read_csv(address)
+cars.columns = ['carname','mpg','cyl','disp','hp','drat','wt','qsec','vs','am','gear','carb']
+mpg = cars['mpg']
+plt.bar(x,y)
