@@ -1,6 +1,6 @@
 #%%
 import pandas as pd
-import naumpy as np
+import numpy as np
 import os
 from pandas import DataFrame, Series, read_excel, value_counts
 from datetime import date, datetime,timedelta
@@ -70,10 +70,7 @@ for i in range(0,len(files)):
         DF_obj['debit credit']=np.where(source_final['Credit']>0,'C','')
         DF_obj['debit credit']=np.where(source_final['Debit']>0,'D',DF_obj['debit credit'])
         #gl account:
-        if source_final['IFRS'] =='2999000001':
-            DF_obj['gl account']='IN'
-        else:
-            DF_obj['gl account']=liast(source_final['IFRS'])
+        DF_obj['gl account'] =list(source_final['IFRS'])
         #currency:
         DF_obj ['currency']='VND'
         #amount document:
