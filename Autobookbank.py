@@ -1,6 +1,6 @@
 #%%
 import pandas as pd
-import numpy as np
+import naumpy as np
 import os
 from pandas import DataFrame, Series, read_excel, value_counts
 from datetime import date, datetime,timedelta
@@ -8,7 +8,7 @@ from datetime import date, datetime,timedelta
 path = os.getcwd()
 files = os.listdir(r'Autobooking/SOURCE/')
 files
-k = '10'
+k = '24'
 for i in range(0,len(files)):
     address = files[i]
     address_excelfile = fr"Autobooking/SOURCE/{address}"
@@ -50,7 +50,7 @@ for i in range(0,len(files)):
         #company code
         DF_obj['company code'] = 'VN01'
         #document type
-        DF_obj['document type'] = source['Doc type'][0]
+        DF_obj['document type'] = 'LR'
         #document date
         DF_obj['document date'] = str(file_date)
         #posting date
@@ -70,20 +70,22 @@ for i in range(0,len(files)):
         DF_obj['debit credit']=np.where(source_final['Credit']>0,'C','')
         DF_obj['debit credit']=np.where(source_final['Debit']>0,'D',DF_obj['debit credit'])
         #gl account:
-        DF_obj['gl account']=list(source_final['IFRS'])
+        if source_final['IFRS'] =='2999000001':
+            DF_obj['gl account']='IN'
+        else:
+            DF_obj['gl account']=liast(source_final['IFRS'])
         #currency:
         DF_obj ['currency']='VND'
         #amount document:
         DF_obj['amount document'] = list(sum_credit_debit_final)
         #line text:
         DF_obj['line text'] = list(source_final['Text'])
-        DF_obj
         #assignment:
         DF_obj['assignment']= source_final.columns[0]
         #define blank value:
         DF_obj[['amount local currency','value date','segment','cost center','internal order','profit center','XREF1','XREF2','XREF3','VENDOR no','Name','Tax no 1','street','city','MWSKZ','Gross/net','Tax amount','BP type','BSEG','Trading partner']]=''
         #Check file rong truoc khi xuat
-        if len(DF_obj) > 0:        
+        if len(DF_obj) > 0:
             DF_obj.to_csv (fr'AUTO{unique_file_indentification}{k}.csv',index = False, header =False)
             k = str(int(k) + 1).rjust(2,"0")
 
